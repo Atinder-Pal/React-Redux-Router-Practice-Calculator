@@ -74,4 +74,4 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/de
 
 This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
 
-**Link to Trello Board:** https://trello.com/b/XNMkkW8h/react-redux-assignment-calculator
+**Link to Trello Board:** https://trello.com/b/gT8Buwgi/calculator-with-react-redux-router
