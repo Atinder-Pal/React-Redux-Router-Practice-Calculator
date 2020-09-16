@@ -7,7 +7,8 @@ import calculationsReducer from './reducers/calculations';
 import { Provider } from 'react-redux';
 import CalculationsHistory from './components/CalculationsHistory';
 import SingleFieldCalculator from './components/SingleFieldCalculator';
-
+import Nav from './components/Nav';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 // Create store  and pass our calculationsReducer to it so it knows how to handle actions
 const calculationsStore = createStore( calculationsReducer, 
@@ -24,8 +25,12 @@ ReactDOM.render(
    <Provider store = {calculationsStore}>
       {/* <Calculator heading="Welcome to Math Buddy"/>
       <CalculationsHistory /> */}
-      <SingleFieldCalculator heading="Welcome to Math Buddy"/>
-      <CalculationsHistory />
+      <Router>
+        <Nav  heading="Welcome to Math Buddy"/>
+        <Route path ="/" component = {SingleFieldCalculator} exact  />
+        <Route path = "/calculations-history"> <CalculationsHistory /> </Route>
+      </Router>   
+      
    </Provider>,  
   document.getElementById('root')
 );
