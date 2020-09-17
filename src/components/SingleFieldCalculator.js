@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import { connect } from 'react-redux';
 import { addNewCalculation } from '../actions/calculations';
+import './Project.css';
 // import './reset.css';
 // import './SingleFieldCalculator.css';
 
@@ -154,7 +155,7 @@ function SingleFieldCalculator(props)
     return ( 
         <>
             
-            <form onSubmit = {doCalculation}>
+            <form onSubmit = {doCalculation} className={props.storeState.changeThemeReducer.theme} >
                 <label htmlFor='inputs'>Enter your operation: </label><br/>
                 <input type='text' id='inputs' value={newExpression} onChange={e => {setNewExpression( e.target.value )} } /><br />
                
@@ -167,4 +168,4 @@ function SingleFieldCalculator(props)
      );
 }
 
-export default connect( myStore => { return { calculations: myStore }}) (SingleFieldCalculator);
+export default connect( myStore => { return { storeState: myStore }}) (SingleFieldCalculator);

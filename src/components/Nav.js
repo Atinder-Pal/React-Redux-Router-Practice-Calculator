@@ -1,5 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { toggleTheme } from '../actions/changeTheme';
+import { connect } from 'react-redux';
+import './Project.css';
 
 
 /**
@@ -12,9 +15,23 @@ import { Link } from 'react-router-dom';
  */
 function Nav (props)
 {
+
+
+  const changeTheme= (e) =>{
+    e.preventDefault();
+    if(props.storeState.changeThemeReducer.theme === 'dark-mode')
+    {
+        props.dispatch( toggleTheme('light-mode') );
+    }
+    else if ( props.storeState.changeThemeReducer.theme === 'light-mode'  )
+    {
+        props.dispatch( toggleTheme('dark-mode') );
+    }
+  }  
   return (
-    <nav className="calculator-nav">
+    <nav className={props.storeState.changeThemeReducer.theme}>
       <h1>{props.heading}</h1>
+      <button onClick={changeTheme}>Change Theme</button>
       <ul>
         <li>
           <Link to="/">
@@ -31,4 +48,4 @@ function Nav (props)
   );
 }
 
-export default Nav;
+export default connect( myStore => { return { storeState: myStore }}) (Nav);

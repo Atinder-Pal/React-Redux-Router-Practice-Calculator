@@ -9,9 +9,10 @@ import CalculationsHistory from './components/CalculationsHistory';
 import SingleFieldCalculator from './components/SingleFieldCalculator';
 import Nav from './components/Nav';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
+import reducer from './reducers/index';
 
 // Create store  and pass our calculationsReducer to it so it knows how to handle actions
-const calculationsStore = createStore( calculationsReducer, 
+const calculationsStore = createStore( reducer, 
 //to use the Redux DevTools, add this argument as well! 
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__() );
 
